@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartu Ucapan Ulang Tahun Islami</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --secondary: #f8f8f8;
+            --accent: #ffab00;
+            --text: #333;
+            --light-text: #666;
+            --card-bg: #fff;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4f0fb 100%);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 2.2rem;
+        }
+
+        .form-container {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            transition: all 0.6s ease;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+            background-color: #fff;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary) 0%, #4caf50 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(46, 125, 50, 0.4);
+        }
+
+        .birthday-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin: 0 auto;
+            max-width: 600px;
+            width: 100%;
+            display: none;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .birthday-card.show {
+            display: block;
+            animation: cardAppear 0.8s forwards;
+        }
+
+        @keyframes cardAppear {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary) 0%, #4caf50 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .card-header i {
+            font-size: 2.5rem;
+            margin: 0 15px;
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        .greeting {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            text-align: center;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .recipient-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .recipient-info h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .age {
+            font-size: 1.2rem;
+            color: var(--light-text);
+            font-style: italic;
+        }
+
+        .message {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .message p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .wish-container {
+            background-color: var(--secondary);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid var(--accent);
+        }
+
+        .wish-text {
+            font-family: 'Amiri', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .user-wish {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+            padding: 10px;
+            background-color: #f0f8ff;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .blessings {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .blessing-item {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .fun-message {
+            font-style: italic;
+            color: var(--light-text);
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #fff9e6;
+        }
+
+        .closing {
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        .card-footer {
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #757575 0%, #9e9e9e 100%);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .form-container, .card-content {
+                padding: 20px;
+            }
+            
+            .card-header {
+                padding: 20px;
+            }
+            
+            .card-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .recipient-info h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Kartu Ucapan 🎉</h1>
+        
+        <div class="form-container" id="formContainer">
+            <form id="birthdayForm">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Nama Lengkap:</label>
+                    <input type="text" id="name" required placeholder="Nama kamu siapa?">
+                </div>
+                
+                <div class="form-group">
+                    <label for="age"><i class="fas fa-cake-candles"></i> Umur Sekarang:</label>
+                    <input type="number" id="age" required placeholder="Umur berapa sekarang?">
+                </div>
+                
+                <div class="form-group">
+                    <label for="wish"><i class="fas fa-star"></i> Harapan Tahun Ini:</label>
+                    <textarea id="wish" required placeholder="Apa harapanmu di usia yang baru ini?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthdate"><i class="fas fa-calendar"></i> Tanggal Lahir:</label>
+                    <input type="date" id="birthdate" required>
+                </div>
+                
+                <button type="submit" class="btn" id="submitBtn">
+                    <i class="fas fa-magic"></i> Lihat Kartu Ucapan
+                </button>
+            </form>
+        </div>
+
+        <div id="birthdayCard" class="birthday-card">
+            <div class="card-header">
+                <i class="fas fa-moon"></i>
+                <h2>Barakallahu fii umrik</h2>
+                <i class="fas fa-star"></i>
+            </div>
+            
+            <div class="card-content">
+                <p class="greeting">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
+                
+                <div class="recipient-info">
+                    <h3 id="cardName">Nama</h3>
+                    <p class="age">Kini menginjak usia <span id="cardAge">0</span> tahun</p>
+                </div>
+                
+                <div class="message">
+                    <p>Di hari yang penuh berkah ini, kami mengucapkan:</p>
+                    <p class="wish-text">Selamat ulang tahun yang ke-<span id="cardAge2">0</span>!</p>
+                    
+                    <div class="blessings">
+                        <p class="blessing-item">semoga Allah SWT senantiasa memberikan kesehatan selalu, melimpahkan rezeki yang halal dan barokah, memberikan ketenangan hati dan pikiran,dan dimudahkan segala urusannya</p>
+            
+                    </div>
+                    
+                    <div class="wish-container">
+                        <p class="wish-text">Semoga harapanmu tercapai:</p>
+                        <p class="user-wish" id="cardWish">Harapan</p>
+                    </div>
+                    
+                    <div class="fun-message" id="funMessage">
+                        <!-- Pesan random akan muncul di sini -->
+                    </div>
+                    
+                    <p>Semoga di usia yang baru ini, senantiasa diberikan kemudahan dalam beribadah,kesabaran dalam menghadapi ujian, kebahagiaan yang terus mengalir, dan selalu dalam lindungan allah SWT</p>
+                    
+                    <div class="closing">
+                        <p>Barakallahu fii umrik, semoga panjang umur dan penuh berkah,</p>
+                        <p>sehat selalu lahir dan batin,</p>
+                        <p>serta menjadi hamba yang selalu dalam lindungan dan ridho-Nya.</p>
+                        <p>وَ السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-footer">
+                <button id="newCardBtn" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Buat Kartu Baru
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('birthdayForm');
+            const formContainer = document.getElementById('formContainer');
+            const birthdayCard = document.getElementById('birthdayCard');
+            const cardName = document.getElementById('cardName');
+            const cardAge = document.getElementById('cardAge');
+            const cardAge2 = document.getElementById('cardAge2');
+            const cardWish = document.getElementById('cardWish');
+            const funMessage = document.getElementById('funMessage');
+            const newCardBtn = document.getElementById('newCardBtn');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            // Daftar pesan random yang lucu dan islami
+            const randomMessages = [
+                "Jangan lupa traktirannya ya! Tapi yang halal dan barokah 😋",
+                "Semoga makin banyak rezeki, jadi bisa ngajak kita semua makan 😄",
+                "Usia bertambah, semakin bijak dalam memilih makanan yang halal!",
+                "Semoga panjang umur, jadi bisa khatam Quran berkali-kali! 📖",
+                "Jangan lupa syukuri nikmat usia dengan sedekah ya!",
+                "Semoga tahun ini jadi tahun terbaik untuk ibadahmu!",
+                "Bertambah usia, semakin dekat dengan surga-Nya! 🕌",
+                "Jangan cuma nambah usia, tapi juga nambah pahala!",
+                "Semoga jadi pribadi yang lebih sabar dan ikhlas! 🤲",
+                "Nambah usia berarti nambah kesempatan beramal sholeh!"
+            ];
+            
+            // Set default date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('birthdate').value = today;
+            
+            // Fungsi untuk menampilkan kartu
+            function showBirthdayCard(name, age, wish) {
+                cardName.textContent = name;
+                cardAge.textContent = age;
+                cardAge2.textContent = age;
+                cardWish.textContent = wish;
+                
+                // Pilih pesan random
+                const randomIndex = Math.floor(Math.random() * randomMessages.length);
+                funMessage.textContent = randomMessages[randomIndex];
+                
+                // Sembunyikan form dan tampilkan kartu
+                formContainer.style.display = 'none';
+                birthdayCard.style.display = 'block';
+                birthdayCard.classList.add('show');
+                
+                // Scroll ke kartu
+                birthdayCard.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Fungsi untuk kembali ke form
+            function showForm() {
+                birthdayCard.classList.remove('show');
+                setTimeout(() => {
+                    birthdayCard.style.display = 'none';
+                    formContainer.style.display = 'block';
+                    form.reset();
+                    document.getElementById('name').focus();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 300);
+            }
+            
+            // Event listener untuk form submit
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitBtn.disabled = true;
+                
+                // Get form values
+                const name = document.getElementById('name').value.trim();
+                const age = document.getElementById('age').value;
+                const wish = document.getElementById('wish').value.trim();
+                const birthdate = document.getElementById('birthdate').value;
+                
+                // Validasi input
+                if (!name || !age || !wish || !birthdate) {
+                    alert('Harap isi semua field ya!');
+                    submitBtn.disabled = false;
+                    return;
+                }
+                
+                if (age <= 0 || age > 120) {
+                    alert('Umur harus antara 1-120 tahun');
+                    submitBtn.disabled = false;
+                    return;
+                }
+                
+                // Tampilkan kartu
+                showBirthdayCard(name, age, wish);
+                submitBtn.disabled = false;
+            });
+            
+            // Event listener untuk tombol kembali
+            newCardBtn.addEventListener('click', showForm);
+            
+            // Pastikan form bisa diakses saat halaman dimuat ulang
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) {
+                    showForm();
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
